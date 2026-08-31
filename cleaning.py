@@ -49,4 +49,12 @@ df = df[df['Kms_Driven'] < 300000]
 
 # print(df['Car_Name'].str[0].str.isupper().value_counts())
 
+car_group = df[df['Car_Name'].str[0].str.isupper() == False]['Car_Name'].unique()
+bike_group = df[df['Car_Name'].str[0].str.isupper() == True]['Car_Name'].unique()
+# print(car_group)
+# print(bike_group)
 
+df = df[df['Car_Name'].str[0].str.isupper() == False]
+# print(df.shape)
+
+df.to_csv('cleaned_car_data.csv', index=False)
